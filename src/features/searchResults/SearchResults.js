@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchResults, isLoadingResults } from './searchResultsSlice';
 import { selectSongs, addSong } from '../playlist/playlistSlice';
+import Results from '../../components/Results';
 
 function SearchResults() {
   const [resultArr, setResultArr] = useState([]);
@@ -54,24 +55,7 @@ function SearchResults() {
   return (
     <>
       <h2>Results</h2>
-      {
-        resultArr.map((result, index) => {
-          return (
-            <Fragment key={`result-${index}`}>
-              <div className='song' key={`result-${index}`}>
-                <div className='detail'>
-                  <h3>{result.name}</h3>
-                  <p>{result.artist}</p>
-                </div>
-                <div className='plus-icon'>
-                  <button id={`plus+${index}`} value={index} onClick={() => handleClick(result.id)}><i className='fa fa-plus'></i></button>
-                </div>
-              </div>
-              <hr/>
-            </Fragment>
-          );
-        })
-      }
+      <Results resultArr={resultArr} handleClick={handleClick} icon='plus'/>
     </>
   )
 }

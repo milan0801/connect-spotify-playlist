@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSongs, deleteSong, clearSong } from '../playlist/playlistSlice';
+import Results from '../../components/Results';
 
 function Playlist() {
   const [title, setTitle] = useState('');
@@ -77,24 +78,9 @@ function Playlist() {
         <div className='input-title'>
           <input type='text' placeholder='Title' value={title} onChange={handleChange} />
         </div>
-        {
-          currentPlaylist.map((song, index) => {
-            return (
-              <Fragment key={`list${index}`}>
-                <div className='song' key={`result-${index}`}>
-                  <div className='detail'>
-                    <h3>{song.name}</h3>
-                    <p>{song.artist}</p>
-                  </div>
-                  <div className='minus-icon'>
-                    <button type='button' onClick={(e) => {handleClick(song.id)}}><i className='fa fa-minus'></i></button>
-                  </div>
-                </div>
-                <hr/>
-              </Fragment>
-            )
-          })
-        }
+        <div className='playlist-display'>
+          <Results resultArr={currentPlaylist} handleClick={handleClick} icon='minus'/>
+        </div>
         <div className='submit-button'>
           <button type='submit'>Send</button>
         </div>
