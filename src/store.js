@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import searchResultReducer from './features/searchResult/searchResultSlice';
+import searchResultsReducer from './features/searchResults/searchResultsSlice';
+import playlistReducer from './features/playlist/playlistSlice';
 
 export default configureStore({
     reducer: {
-      search: searchResultReducer
+      search: searchResultsReducer,
+      playlist: playlistReducer
     },
 });
