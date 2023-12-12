@@ -70,7 +70,7 @@ function Playlist() {
   }
 
   return (
-    <>
+    <div className='playlist'>
       <h2>Playlist</h2>
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -85,7 +85,7 @@ function Playlist() {
           <button type='submit'>Send</button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 

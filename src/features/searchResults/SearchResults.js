@@ -28,7 +28,11 @@ function SearchResults() {
   }, [results]);
 
   if (resultsIsLoading) {
-    return <h2>Loding</h2>;
+    return (
+      <div className='search-results'>
+        <h2>Loding</h2>
+      </div>
+    );
   }
   if (!results) {
     return (
@@ -53,10 +57,10 @@ function SearchResults() {
   };
   
   return (
-    <>
+    <div className='search-results'>
       <h2>Results</h2>
       <Results resultArr={resultArr} handleClick={handleClick} icon='plus'/>
-    </>
+    </div>
   )
 }
 
