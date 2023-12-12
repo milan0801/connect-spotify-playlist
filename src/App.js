@@ -1,4 +1,5 @@
 import './App.css';
+import Playlist from './features/playlist/Playlist';
 import SearchBar from './features/searchBar/SearchBar';
 import SearchResults from './features/searchResults/SearchResults';
 
@@ -13,6 +14,7 @@ function App() {
       </div>
       <div className='search-results'>
         <SearchResults/>
+        <Playlist/>
       </div>
     </div>
   );
