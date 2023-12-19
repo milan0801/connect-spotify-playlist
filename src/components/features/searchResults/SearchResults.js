@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchResults, isLoadingResults } from './searchResultsSlice';
 import { selectSongs, addSong } from '../playlist/playlistSlice';
-import Results from '../../components/Results';
+import Results from '../results/Results';
 
 function SearchResults() {
   const [resultArr, setResultArr] = useState([]);

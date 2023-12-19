@@ -43,6 +43,7 @@ header {
   grid-template-rows: repeat(2, 1fr);
   align-items: center;
   grid-auto-rows: 1em;
+  margin-bottom: 1em;
 }
 
 .detail {

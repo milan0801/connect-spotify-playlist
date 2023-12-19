@@ -24,7 +24,7 @@ function SearchBar() {
   return (
     <form onSubmit={handleSubmit}>
       <input type='text' value={searchString} placeholder='Search keyword' onChange={handleChange} />
-      <button disable={searchResultIsLoading}>
+      <button disabled={searchResultIsLoading}>
         SEARCH
       </button>
     </form>

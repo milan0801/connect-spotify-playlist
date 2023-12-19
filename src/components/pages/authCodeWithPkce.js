@@ -7,12 +7,14 @@ export async function redirectToAuthCodeFlow(clientId) {
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("response_type", "code");
-  params.append("redirect_uri", "http://localhost:3000/");
+  params.append("redirect_uri", "http://localhost:3001/spotify-playlist");
   params.append("scope", "user-read-private playlist-modify-private");
   params.append("code_challenge_method", "S256");
   params.append("code_challenge", challenge);
 
   document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
+
+  return;
 }
 
 function generateCodeVerifier(length) {
@@ -41,21 +43,25 @@ export async function getAccessToken(clientId, code) {
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");
   params.append("code", code);
-  params.append("redirect_uri", "http://localhost:3000/");
+  params.append("redirect_uri", "http://localhost:3001/spotify-playlist");
   params.append("code_verifier", verifier);
-
+  console.log(code);
   const result = await fetch("https://accounts.spotify.com/api/token", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: params
   });
 
+  if (!result.ok) {
+    redirectToAuthCodeFlow(clientId);
+  }
+
   const { access_token, refresh_token } = await result.json();
+
   localStorage.setItem('refresh_token', refresh_token);
   localStorage.setItem('access_token', access_token);
 
   return access_token;
-  // return token.access_token;
 }
 
 export async function getTokenByRefresh(clientId, refreshToken) {
@@ -72,11 +78,15 @@ export async function getTokenByRefresh(clientId, refreshToken) {
       client_id: clientId
     }),
   }
-  const body = await fetch(url, payload);
+  const result = await fetch(url, payload);
+  if (!result.ok) {
+    redirectToAuthCodeFlow(clientId);
+  }
 
-  const { access_token, refresh_token } = await body.json();
+  const { access_token, refresh_token } = await result.json();
   localStorage.setItem('refresh_token', refresh_token);
   localStorage.setItem('access_token', access_token);
   
   return access_token;
 }
+
