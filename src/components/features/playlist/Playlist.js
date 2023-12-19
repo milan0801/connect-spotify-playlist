@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSongs, deleteSong, clearSong } from './playlistSlice';
 import Results from '../results/Results';
