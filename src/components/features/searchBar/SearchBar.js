@@ -22,10 +22,10 @@ function SearchBar() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type='text' value={searchString} placeholder='Search keyword' onChange={handleChange} />
+    <form className='search-form' onSubmit={handleSubmit}>
+      <input type='search' value={searchString}  onChange={handleChange} />
       <button disabled={searchResultIsLoading}>
-        SEARCH
+      <i class="fa fa-search"></i>
       </button>
     </form>
   );

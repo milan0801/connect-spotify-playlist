@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -11,8 +11,10 @@ export default function Home() {
 
   return (
     <>
-      <h1>Find Your Fav Songs!</h1>
-      <button onClick={handleClick}>Try it</button>
+      <div className='home'>
+        <p>Find Your Fav Songs!</p>
+        <button onClick={handleClick}>Try it</button>
+      </div>
     </>
   );
 }

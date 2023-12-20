@@ -1,4 +1,4 @@
-import { redirectToAuthCodeFlow, getAccessToken, getTokenByRefresh } from "./authCodeWithPkce.js";
+import { redirectToAuthCodeFlow, getAccessToken, getTokenByRefresh } from './authCodeWithPkce';
 
 export default async function login() {
   const clientId = "1a9eecf6542b49128c910e3583fde33e";

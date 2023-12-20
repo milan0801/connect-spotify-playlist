@@ -10,7 +10,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route index element={<Home/>}/>
     <Route path='spotify-playlist' element={<SpotifyPlaylist />}/>
   </Route>
-));
+));    
 
 function App() {
   return (

@@ -2,7 +2,7 @@ export async function redirectToAuthCodeFlow(clientId) {
   const verifier = generateCodeVerifier(128);
   const challenge = await generateCodeChallenge(verifier);
 
-  localStorage.setItem("verifier", verifier);
+  localStorage.setItem('verifier', verifier);
 
   const params = new URLSearchParams();
   params.append("client_id", clientId);
@@ -68,12 +68,12 @@ export async function getTokenByRefresh(clientId, refreshToken) {
   const url = "https://accounts.spotify.com/api/token";
 
   const payload = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/x-www-form-urlencoded"
     },
     body: new URLSearchParams({
-      grant_type: 'refresh_token',
+      grant_type: "refresh_token",
       refresh_token: refreshToken,
       client_id: clientId
     }),
