@@ -13,6 +13,9 @@ export default function Root() {
       <main>
         <Outlet/>
       </main>
+      <footer>
+        <p>Created by Eva Lin</p>
+      </footer>
     </>
   );
 }

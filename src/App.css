@@ -150,6 +150,10 @@ header nav {
 
 .detail {
   grid-column: 1 / span 5;
+  grid-row: 1 / span 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon {
@@ -214,3 +218,14 @@ p {
   margin-top: 0.8em;
   box-shadow: 5px 5px 5px black;
 }
+
+footer {
+  position: relative;
+  top: 200px;
+  height: 100px;
+  background-color: rgb(49, 58, 73);
+  text-align: center;
+  padding: 3px;
+  color: white;
+}
+
