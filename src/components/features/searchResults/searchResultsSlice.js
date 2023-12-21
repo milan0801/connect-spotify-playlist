@@ -23,6 +23,11 @@ export const searchResultsSlice = createSlice({
     isLoadingResults: false,
     failedToLoadResults: false
   },
+  reducers: {
+    clearResults: (state) => {
+      state.searchResults = {};
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(searchKeyword.pending, (state) => {
       state.isLoadingResults = true;
@@ -40,5 +45,7 @@ export const searchResultsSlice = createSlice({
 
 export const searchResults = (state) => state.search.searchResults;
 export const isLoadingResults = (state) => state.search.isLoadingResults;
+
+export const { clearResults } = searchResultsSlice.actions;
 
 export default searchResultsSlice.reducer;

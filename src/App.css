@@ -1,13 +1,17 @@
 header {
   position: fixed;
-  top: 0;
+  top: 0px;
   z-index: 2;
   height: 50px;
   width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+nav {
   display: grid;
   align-items: center;
+  height: 100%;
   grid-template-columns: repeat(12, 1fr);
-  background-color: rgb(255, 255, 255);
 }
 
 .logo {
@@ -19,19 +23,26 @@ header {
   text-decoration: none;
 }
 
-header nav {
+.nav-menu {
   grid-column: 9 / span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-content: center;
+  list-style-type: none;
 }
 
-.nav-item {
+.menu-item {
   text-decoration: none;
-  margin-left: 25px;
-  margin-right: 25px;
   color: rgb(40, 40, 40);
 }
 
-.nav-item:hover {
+.menu-item:hover {
   font-weight: bold;
+}
+
+.menu-icon {
+  display: none;
 }
 
 .home {
@@ -41,7 +52,7 @@ header nav {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 360px;
+  height: 460px;
   margin: 10px 30px;
   border-radius: 30px;
   display: grid;
@@ -52,7 +63,7 @@ header nav {
 }
 
 .home p {
-  grid-column: 3 / span 5;
+  grid-column: 2 / span 7;
   grid-row: 2 / span 1;
   font-size: 3em;
   text-shadow: 5px 5px 2px black;
@@ -99,6 +110,7 @@ header nav {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
+  min-width: 200px;
 }
 
 .search-form input {
@@ -229,3 +241,65 @@ footer {
   color: white;
 }
 
+@media only screen and (max-width: 960px) {
+  nav {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  
+  .logo {
+    grid-column: 1 / span 5;
+  }
+  
+  .menu-icon {
+    display: block;
+    grid-column: 8 / span 1;
+    font-size: 1.2em;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu-active {
+    position: absolute;
+    top: 30px;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    align-items: center;
+    list-style-type: none;
+    background-color: rgb(0, 0, 0);
+  }
+
+  .menu-item {
+    color: rgb(255, 255, 255);
+  }
+
+  .results {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 2000px;
+  }
+
+  .search-results {
+    grid-column: 2 / span 6;
+    background-color: #b8c3d3;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .playlist {
+    grid-column: 2 / span 6;
+  }
+
+  .home p {
+    font-size: 2em;
+  }
+
+  .home button {
+    font-size: 1em;
+    align-self: start;
+  }
+}
