@@ -43,3 +43,7 @@ The purpose is to build a website that can allow users to search for songs on Sp
     ```
 
 ## Demo
+
+
+https://github.com/milan0801/connect-spotify-playlist/assets/65116786/a25a1997-01f6-40a0-9051-09a528d9a487
+
