@@ -29,15 +29,19 @@ The purpose is to build a website that can allow users to search for songs on Sp
     ```
     git clone git@github.com:milan0801/connect-spotify-playlist.git
     ```
-2. Install npm packages
+2. Change path
+    ```
+    cd connect-spotify-playlist
+    ```
+3. Install npm packages
     ```
     npm install
     ```
-3. Create your own Spotify app in accordance with [this doc](https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app)
+4. Create your own Spotify app in accordance with [this doc](https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app)
 
     Note: We set Redirect URL as ```http://localhost:3001/spotify-playlist```.
-4. Replace the variable of clientID with your own Client ID in ./src/pages/login.js
-5. Execute
+5. Replace the variable of clientID with your own Client ID in ./src/pages/login.js
+6. Execute
     ```
     npm start
     ```
